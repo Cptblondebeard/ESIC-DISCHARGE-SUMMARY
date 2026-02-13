@@ -603,8 +603,8 @@ SIGNATURE OF THE CONSULTANT             SIGNATURE OF THE RESIDENT
                 response = model.generate_content(
                     prompt,
                     generation_config=genai.types.GenerationConfig(
-                        temperature=0.1,
-                        max_output_tokens=2048
+                        temperature=0.2,
+                        max_output_tokens=4096
                     )
                 )
                 
@@ -700,3 +700,4 @@ st.markdown("""
 </div>
 
 """, unsafe_allow_html=True)
+
