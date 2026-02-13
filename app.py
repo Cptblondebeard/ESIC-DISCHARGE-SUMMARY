@@ -105,7 +105,10 @@ else:
     </div>
     """, unsafe_allow_html=True)
 # Initialize Gemini API
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+if "GEMINI_API_KEY" in st.secrets:
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+else:
+    st.error("API Key not found. Please set GEMINI_API_KEY in Streamlit Secrets.")
 # Updated to a model confirmed by your terminal test
 model = genai.GenerativeModel('models/gemini-flash-latest')
 
@@ -695,4 +698,5 @@ st.markdown("""
     <p style="color: #666; font-size: 12px;">⚠️ This is a computer-generated discharge summary as part of ESIC's Digital Health Initiative.</p>
     <p style="color: #666; font-size: 11px;">© 2026 ESIC India - All Rights Reserved</p>
 </div>
+
 """, unsafe_allow_html=True)
